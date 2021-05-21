@@ -7,18 +7,7 @@
 import sys
 from typing import List
 from collections import deque
-
-
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.right = None
-        self.left = None
-
-
-class Tree:
-    def __init__(self, head):
-        self.head = head
+from 二叉树问题.utils.utils import Node, build_tree_from_txt, build_tree_from_stdin, print_list
 
 
 def pre_order(head: Node) -> List[int]:
@@ -150,31 +139,12 @@ def post_order_un_recur_with1stack_2(head: None, res: List):
 
 
 if __name__ == "__main__":
-    tree_dict = {}
-    counter = 0
-    for idx, line in enumerate(sys.stdin):
-        if idx == 0:
-            temp = [int(k) for k in line.split()]
-            num, head_value = temp
-            head_node = Node(head_value)
-            tree = Tree(head_node)
-            tree_dict[head_value] = head_node
-        else:
-            temp = [int(k) for k in line.split()]
-            value, left_child, right_child = temp
-            node = tree_dict[value]
-            left_node = Node(left_child) if left_child != 0 else None
-            right_node = Node(right_child) if right_child != 0 else None
-            tree_dict[left_child] = left_node
-            tree_dict[right_child] = right_node
-            node.left = left_node
-            node.right = right_node
-            counter += 1
-            if num == counter:
-                break
+    tree = build_tree_from_txt()
+    # tree = build_tree_from_stdin()
+
     pre_order_res = pre_order(tree.head)
     in_order_res = in_order(tree.head)
     post_order_res = post_order(tree.head)
-    print(" ".join([str(k) for k in pre_order_res]))
-    print(" ".join([str(k) for k in in_order_res]))
-    print(" ".join([str(k) for k in post_order_res]))
+    print_list(pre_order_res)
+    print_list(in_order_res)
+    print_list(post_order_res)
