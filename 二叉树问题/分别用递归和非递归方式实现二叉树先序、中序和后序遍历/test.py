@@ -4,7 +4,6 @@
 # @Author  : Zhili Shen
 # @File    : test.py.py
 # @Notice  :
-import sys
 from typing import List
 from collections import deque
 from 二叉树问题.utils.utils import Node, build_tree_from_txt, build_tree_from_stdin, print_list

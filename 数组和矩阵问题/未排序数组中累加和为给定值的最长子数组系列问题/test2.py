@@ -29,7 +29,15 @@ if __name__ == "__main__":
             temp = [int(k) for k in line.split()]
             length = temp[0]
         elif idx == 1:
-            temp = [-1 if int(k) == 0 else 1 for k in line.split()]
+            temp = []
+            old_temp = [int(k) for k in line.split()]
+            for cur in old_temp:
+                if cur < 0:
+                    temp.append(-1)
+                elif cur == 0:
+                    temp.append(0)
+                else:
+                    temp.append(1)
             break
 
     print(max_length(temp, 0))
