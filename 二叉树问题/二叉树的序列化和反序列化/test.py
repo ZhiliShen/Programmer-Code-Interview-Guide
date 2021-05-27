@@ -6,8 +6,7 @@
 # @Notice  :
 from typing import List
 from collections import deque
-from 二叉树问题.utils.utils import Node, build_tree_from_txt, build_tree_from_stdin, print_list
-from 二叉树问题.如何较为直观地打印二叉树.test import print_tree
+from 二叉树问题.utils.utils import Node, build_tree_from_txt
 
 
 def serial_by_pre(head: Node):
@@ -82,7 +81,6 @@ def gen_node_by_string(val: str):
 
 if __name__ == "__main__":
     tree = build_tree_from_txt()
-    # tree = build_tree_from_stdin()
 
     print(serial_by_pre(tree.head))
     print(serial_by_level(tree.head))
