@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- # 
+# -*- coding: utf-8 -*- #
 # @Time    : 2021-06-04 19:15
 # @Email   : zhilishen@smail.nju.edu.cn
 # @Author  : Zhili Shen
@@ -14,7 +14,7 @@ def contains(t1: Node, t2: Node):
     if t2 is None:
         return True
     if t1 is None:
-        return False
+        return False  # t1 must behind t2
     return check(t1, t2) or contains(t1.left, t2) or contains(t1.right, t2)
 
 
