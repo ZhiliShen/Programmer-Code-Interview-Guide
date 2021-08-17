@@ -20,6 +20,32 @@ class Tree:
         self.head = head
 
 
+def build_tree_from_stdin():
+    tree_dict = {}
+    counter = 0
+    for idx, line in enumerate(sys.stdin):
+        if idx == 0:
+            temp = [int(k) for k in line.split()]
+            num, head_value = temp
+            head_node = Node(head_value)
+            tree = Tree(head_node)
+            tree_dict[head_value] = head_node
+        else:
+            temp = [int(k) for k in line.split()]
+            value, left_child, right_child = temp
+            node = tree_dict[value]
+            left_node = Node(left_child) if left_child != 0 else None
+            right_node = Node(right_child) if right_child != 0 else None
+            tree_dict[left_child] = left_node
+            tree_dict[right_child] = right_node
+            node.left = left_node
+            node.right = right_node
+            counter += 1
+            if num == counter:
+                break
+    return tree
+
+
 def print_list(res: List):
     print(" ".join([str(k) for k in res]))
 
@@ -136,32 +162,6 @@ def build_2_tree_from_stdin():
             if num_2 == counter:
                 break
     return tree_1, tree_2
-
-
-def build_tree_from_stdin():
-    tree_dict = {}
-    counter = 0
-    for idx, line in enumerate(sys.stdin):
-        if idx == 0:
-            temp = [int(k) for k in line.split()]
-            num, head_value = temp
-            head_node = Node(head_value)
-            tree = Tree(head_node)
-            tree_dict[head_value] = head_node
-        else:
-            temp = [int(k) for k in line.split()]
-            value, left_child, right_child = temp
-            node = tree_dict[value]
-            left_node = Node(left_child) if left_child != 0 else None
-            right_node = Node(right_child) if right_child != 0 else None
-            tree_dict[left_child] = left_node
-            tree_dict[right_child] = right_node
-            node.left = left_node
-            node.right = right_node
-            counter += 1
-            if num == counter:
-                break
-    return tree
 
 
 def build_value_tree_from_txt():
