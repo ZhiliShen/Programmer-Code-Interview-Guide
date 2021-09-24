@@ -69,7 +69,6 @@ def dynamic_programming_with_space_compress(a_str, b_str):
     return -1 if max_len == 0 else a_str[max_index + 1 - max_len:max_index + 1]
 
 
-
 if __name__ == "__main__":
     str1 = input()
     str2 = input()
