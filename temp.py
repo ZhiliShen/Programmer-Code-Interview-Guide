@@ -4,4 +4,4 @@
 # @Author  : Zhili Shen
 # @File    : temp.py
 # @Notice  :
-print(1<<2)
+print(bin(pow(2, 10)-1))
