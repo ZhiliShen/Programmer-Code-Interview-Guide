@@ -4,7 +4,6 @@
 # @Author  : Zhili Shen
 # @File    : test.py
 # @Notice  :
-
 def is_deformation(a_str, b_str):
     if len(a_str) != len(b_str):
         return 'false'
