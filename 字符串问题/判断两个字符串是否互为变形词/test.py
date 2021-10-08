@@ -13,7 +13,7 @@ def is_deformation(a_str, b_str):
         char_map[ord(temp)] += 1
     for temp in b_str:
         char_map[ord(temp)] -= 1
-        if char_map[ord(temp)] < 0:
+        if char_map[ord(temp)] < 0:  # 边遍历边检验
             return 'false'
 
     return 'true'
