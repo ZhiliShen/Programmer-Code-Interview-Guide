@@ -27,6 +27,7 @@ def get_index(cur: List[str], target: str):
             if cur[mid] < target:
                 left = mid + 1
             if cur[mid] >= target:
+
                 right = mid
     return right if (cur[right] is not None and cur[right] == target) else -1
 
