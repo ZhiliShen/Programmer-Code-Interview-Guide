@@ -26,7 +26,7 @@ def heap_sort(array: List):
     # 下沉排序阶段需要告诉swap数组的哪一部分是堆 而之外的部分则是已经排好序的内容 并且其是左闭右开
     # 堆有序的数组往往右边都比较小 而我们交换时会把右边的数字提到堆顶 而它们的归宿往往又是堆底 所以可以直接将较大的子节点提升 直到该元素到达堆底 再进行上浮操作 可以有效减少比较次数
     for i in range(length):
-        swap(array, 0, length - 1 - i)
+        swap(array, 0, length - 1 - i)  # 这里swap与sink的均是数组的首个元素 而不是像建堆时关注的是i
         sink(array, 0, length - 1 - i)
 
 
