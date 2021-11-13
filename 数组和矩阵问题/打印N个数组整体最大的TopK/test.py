@@ -23,8 +23,8 @@ class MaxHeap:
             max_num = self.array[1]  # 时刻铭记堆顶是1
             self.swap(1, self.element_num)
             self.array[self.element_num] = (0, 0, 0)
+            self.element_num -= 1  # 先将堆的计数器减小 再进行下沉操作!!!
             self.sink(1)
-            self.element_num -= 1
             return max_num
 
     # 1 2 3 4 5 6
