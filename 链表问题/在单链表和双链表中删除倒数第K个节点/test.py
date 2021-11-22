@@ -54,6 +54,39 @@ def remove_last_k_node(head: Node, k: int):
     return head
 
 
+class DoubleNode:
+    def __init__(self, value):
+        self.value = value
+        self.last = None
+        self.next = None
+
+
+def remove_last_k_double_node(head: DoubleNode, k: int):
+    if head is None or k < 1:
+        return head
+    cur_node = head
+    while cur_node is not None:
+        k -= 1
+        cur_node = cur_node.next
+
+    if k == 0:
+        head = head.next
+        head.last = None
+    elif k > 0:
+        return head
+    else:
+        cur_node = head
+        while k + 1 < 0:
+            cur_node = cur_node.next
+            k += 1
+        next = cur_node.next.next
+        cur_node.next = next
+        if next is not None:
+            next.last = cur_node
+
+    return head
+
+
 if __name__ == "__main__":
     a, b = map(int, input().split())
     test1 = get_list()
